@@ -14,6 +14,7 @@ window.addEventListener('DOMContentLoaded', function() {
             tabContent[i].classList.add('hide');
         };
     };
+    
     hideTabContent(1);
 
     function showTabContent(b) {
@@ -112,4 +113,27 @@ window.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = 'hidden';
         });
     };
+
+    // Form
+
+    let message = {
+        loading: 'Загрузка...',
+        success: 'Спасибо! Скоро мы с Вами свяжемся!',
+        failure: 'Что-то пошло не так...'
+    };
+
+    let form = document.querySelector('.main-form'),
+        input = form.getElementsByTagName('input'),
+        statusMessage = document.createElement('div');
+
+        statusMessage.classList.add('status');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        form.appendChild(statusMessage);
+
+        let request = new XMLHttpRequest();
+        request.open('POST', 'server.php');
+        
+    })
 });
